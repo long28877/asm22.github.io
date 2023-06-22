@@ -1,0 +1,35 @@
+<table class="table table-bordered text-center">
+  <tr>
+    <th class="h1" colspan="3">Car</th>
+    <th>
+      <a class="btn btn-success" href="/car/add">Add</a>
+    </th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th>Price$</th>
+    <th>Image</th>
+    <th>Video</th>
+    
+  </tr>
+  {{#each cars}}
+    <tr>
+      <td>{{name}}</td>
+      <td>$ {{price}}</td>
+      <td>
+        <a href="/car/detail/{{_id}}">
+          <img src="{{image}}" width="100" height="100" />
+        </a>
+      </td>
+      <th>
+            <iframe src="https://www.youtube.com/embed/{{ trailer }}" width="100" height="100"></iframe>
+         </th>
+      <td>
+        <a class="btn btn-warning" href="/car/edit/{{_id}}">Edit</a>
+        <a class="btn btn-danger" href="/car/delete/{{_id}}"
+        onclick="return confirm('Are you sure to delete this car ?');"
+        >Delete</a>
+      </td>
+    </tr>
+  {{/each}}
+</table>
